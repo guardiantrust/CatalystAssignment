@@ -1,0 +1,56 @@
+﻿@model CatalystAssignment.Models.PersonViewModel
+<div class="form-group">
+    <h1>Insert a New Person</h1>
+    @using (Ajax.BeginForm("InsertPerson", "Home", new AjaxOptions { HttpMethod = "POST" }))
+    {
+        <div>
+            @Html.LabelFor(m => m.FirstName, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.LastName, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.DOB, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.DOB, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.DOB)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Intrests, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextAreaFor(m => m.Intrests, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Intrests)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Address1, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextAreaFor(m => m.Address1, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Address1)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Address2, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.Address2, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Address2)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.City, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.City)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.State, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.State)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Zipcode, new { @class = "col-sm-2 col-form-label" })
+            @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Zipcode)
+        </div>
+
+        <div>
+            <input type="submit" value="Insert Person" />
+        </div>
+    }
+</div>

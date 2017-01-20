@@ -1,0 +1,19 @@
+﻿
+@model IEnumerable<CatalystAssignment.Models.PersonViewModel>
+<div>
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td style="display:none;">@person.Picture</td>
+            <td style="width:10%">@person.FirstName</td>
+            <td style="width:10%">@person.LastName</td>
+            <td style="width:10%">@person.Age</td>
+            <td style="width:10%">@person.Address1</td>
+            <td style="width:10%">@person.Address2</td>
+            <td style="width:10%">@person.City</td>
+            <td style="width:10%; text-align:center">@person.State</td>
+            <td style="width:10%">@person.Zipcode</td>
+            <td style="width:10%">@person.Intrests</td>
+        </tr>
+    }
+</div>
