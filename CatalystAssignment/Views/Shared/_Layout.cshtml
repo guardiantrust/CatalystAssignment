@@ -12,30 +12,33 @@
     @RenderSection("scripts", required: false)
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Search Person", "Index", "Home", null, null)</li>
-                <li>@Html.ActionLink("Insert Person", "Index", "Person", null, null)</li>
-            </ul>
-        </div>
-    </nav>
-    @*<header>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Search Person", "Index", "Home", new { area = "" }, null)</li>
-                <li>@Html.ActionLink("Insert Person", "Index", "Person", new { area = "" }, null)</li>
-            </ul>
-        </div>
-    </header>*@
+
+    <header>
+        <nav class="navbar">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Search Person", "Index", "Home", null, null)</li>
+                    <li>@Html.ActionLink("Insert Person", "Index", "Person", null, null)</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        
+
     </div>
+
+
     <footer>
-        <p>&copy; @DateTime.Now.Year - Aaron Peterson Health Catalyst Assignment</p>
+        <div id="footer">
+            <p>&copy; @DateTime.Now.Year - Aaron Peterson Health Catalyst Assignment</p>
+        </div>
     </footer>
-    
 </body>
+
 </html>
