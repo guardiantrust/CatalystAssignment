@@ -1,16 +1,26 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CatalystAssignment.Models
 {
     public class PersonViewModel
     {
         private DateTime _dob = DateTime.Now;
+
+        public long Id { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Address1 { get; set; }
+        [Required]
         public string Address2 { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required]
         public string Zipcode { get; set; }
 
         public int Age
@@ -24,7 +34,16 @@ namespace CatalystAssignment.Models
 
                 DateTime now = DateTime.Today;
                 int age = now.Year - DOB.Year;
-                if (DOB > now.AddYears(-age)) age--;
+                if (DOB > now.AddYears(-age))
+                {
+                    age--;
+                }
+
+                if (age < 0)
+                {
+                    age = 0;
+                }
+
                 return age;
             }
         }
@@ -44,7 +63,10 @@ namespace CatalystAssignment.Models
                 }
             }
         }
-        public byte[] Picture { get; set; }
+        [Required]
         public string Intrests { get; set; }
+        public string Picture { get; set; }
+
+        public byte[] PictureData { get; set; }
     }
 }

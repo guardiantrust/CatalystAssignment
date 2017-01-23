@@ -1,37 +1,25 @@
 ﻿@{
     ViewBag.Title = "Health Catalyst - Assignment";
-    AjaxOptions options = new AjaxOptions
-    {
-        UpdateTargetId = "searchResults",
-        InsertionMode = InsertionMode.Replace,
-        LoadingElementId = "divWaiting"
-    };
 }
 
+<script src="~/Scripts/person.search.js"></script>
 
 
-
-<div>
+<div class="container">
     <h1>Search for Person</h1>
-    @using (Ajax.BeginForm("SearchPerson", options))
-    {
-        <div id="divWaiting" style="color:red;width:200px;background-color:yellow;font-size:larger;display:none;position:absolute;">Loading ....</div>
-        <div>
-            @Html.TextBox("search", null, new { @class = "form-control" })
-            <button type="submit"><span class="glyphicon glyphicon-search">Search</span></button>
-        </div>
-    }
-    @*<input id="searchText" type="text" />
-        <button id="performNameSearch" class="btn btn-primary" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-        </button>*@
+    <div >
+        <input type="text" id="search" class="col-md-3" />
+        <button id="performSearch" type="submit" class="col-md-4"><span class="glyphicon glyphicon-search">Search</span></button>
+        <button id="performSearchLong" type="submit" class="col-md-4" ><span class="glyphicon glyphicon-search">Search - Long Running</span></button>
+    </div>
 </div>
 
 <div>
     <h1>Search Results</h1>
     <table id="tblResults" class="table-striped table-responsive">
+
         <thead>
-        <th style="display:none;">Pic</th>
+        <th></th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Age</th>
@@ -42,14 +30,13 @@
         <th>Zipcode</th>
         <th>Intrests</th>
         </thead>
-        <tbody id="searchResults">
-            @Html.Action("SearchPerson", new { search = "" })
-        </tbody>
+        <tbody id="searchResults"></tbody>
     </table>
 
+    <div id="searchError">
+        <h2>Search Yeilded No Results!</h2>
+    </div>
 
 
 </div>
-<div>
-    @Html.Action("InsertPerson")
-</div>
+<div class="modal"></div>

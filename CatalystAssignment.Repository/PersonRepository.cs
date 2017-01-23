@@ -6,7 +6,6 @@ using System.Linq;
 using CatalystAssignment.Utilities;
 using System.Threading.Tasks;
 using System.Threading;
-using System;
 
 namespace CatalystAssignment.Repository
 {
@@ -32,10 +31,11 @@ namespace CatalystAssignment.Repository
         /// Insert a new Person
         /// </summary>
         /// <param name="person">Person to insert</param>
-        public async Task InsertPerson(Person person)
+        public async Task<long> InsertPerson(Person person)
         {
             _context.Persons.Add(person);
             await _context.SaveChangesAsync();
+            return person.Id;
         }
 
         /// <summary>
@@ -43,22 +43,19 @@ namespace CatalystAssignment.Repository
         /// </summary>
         /// <param name="search">Value to search with</param>
         /// <returns>A collection of Persons</returns>
-        public  IEnumerable<Person> SearchByName(string search, int threadSleep = 0)
+        public IEnumerable<Person> SearchByName(string search, int threadSleep = 0)
         {
-           
-                Thread.Sleep(threadSleep * 1000);
+            Thread.Sleep(threadSleep * 1000);
 
-                var strippedString = search.TrimToUpper();
-                var query =  _context.Persons
-                     .AsNoTracking()
-                     .Include(x => x.Address)
-                     .Where(x => x.FirstName.Trim().ToUpper().Contains(strippedString)
-                     || x.LastName.Trim().ToUpper().Contains(strippedString));
+            var strippedString = search.TrimToUpper();
+            var query = _context.Persons
+                 .AsNoTracking()
+                 .Include(x => x.Address)
+                 .Where(x => x.FirstName.Trim().ToUpper().Contains(strippedString)
+                 || x.LastName.Trim().ToUpper().Contains(strippedString));
 
-                return query.ToList();
-            
+            return query.ToList();
 
-      
         }
     }
 }

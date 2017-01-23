@@ -15,7 +15,6 @@ namespace CatalystAssignment.Models
         public string Intrests { get; set; }
 
         public string LastName { get; set; }
-
         public byte[] Picture { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc5;
 using CatalystAssignment.Interfaces.Reositories;
 using CatalystAssignment.Repository;
+using System.Web;
 
 namespace CatalystAssignment
 {
@@ -10,13 +11,10 @@ namespace CatalystAssignment
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
-            
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-            
-             container.RegisterType<IPersonRepository, PersonRepository>();
-            
+            var container = new UnityContainer();
+
+            container.RegisterType<IPersonRepository, PersonRepository>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
